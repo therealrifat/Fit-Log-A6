@@ -7,8 +7,8 @@ const Navbar = () => {
    const pathname = usePathname()
   console.log(pathname)
     const links =<>
-        <Link href={"/"} className={`${pathname==='/' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-sm px-6 py-1`}><li>Workout</li></Link>
-        <Link href={"my-plan"} className={`${pathname==='/my-plan' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-sm px-6 py-1`}><li>My Plan</li></Link>
+        <Link href={"/"} className={`${pathname==='/' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-md px-6 py-1`}><li>Workout</li></Link>
+        <Link href={"my-plan"} className={`${pathname==='/my-plan' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-md px-6 py-1`}><li>My Plan</li></Link>
     </>
 
     const myPlan =<>
@@ -27,7 +27,7 @@ const Navbar = () => {
                 <Image src={logo} width={30} height={30} alt="logo"></Image>
                 <h3 className="text-2xl font-semibold md:inline hidden">FITLOG</h3>
             </div>
-            <div className="flex gap-1 list-none">
+            <div className="flex list-none">
                 {links}
             </div>
             <div className="flex list-none gap-3">
