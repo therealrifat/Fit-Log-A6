@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center p-7 ">
             <div className="flex gap-2 items-center ">
                 <Image src={logo} width={30} height={30} alt="logo"></Image>
-                <h3 className="text-2xl font-semibold">FITLOG</h3>
+                <h3 className="text-2xl font-semibold md:inline hidden">FITLOG</h3>
             </div>
             <div className="flex  gap-3 list-none">
             <Link href={"/"}>
