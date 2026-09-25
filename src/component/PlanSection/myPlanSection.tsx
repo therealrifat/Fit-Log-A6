@@ -5,9 +5,12 @@ import React, { useContext, useState } from "react";
 
 const MyPlanSection = () => {
   const { todayPlan, saveLater  } = useContext(PlanContext);
-
+ 
+//   const minutes = saveLater.map((plan)=> (plan.duration)).reduce((acc, cur)=> acc+cur,0)
+  const calories = saveLater.map((plan)=> (plan.caloriesBurned)).reduce((acc, cur)=> acc+cur,0)
+ console.log(calories)
 //   saveLater
-  const [active, setActive] = useState("saved");
+  const [active, setActive] = useState("today");
   const handlesButtons = (clicked: "today" | "saved") => {
     setActive(clicked);
   };
@@ -25,14 +28,16 @@ const MyPlanSection = () => {
           </div>
           <div className="flex flex-col px-5 space-y-1 border-r border-r-gray-500">
             <span className="text-gray-300 text-[16px]">Minutes</span>
-            <span className="text-5xl font-bold">23</span>
+            <span className="text-5xl font-bold">{active === "today" ? (todayPlan.map((plan)=> (plan.duration)).reduce((acc, cur)=> acc+cur,0)): (saveLater.map((plan)=> (plan.duration)).reduce((acc, cur)=> acc+cur,0)) }</span>
           </div>
           <div className="flex flex-col px-5 space-y-1">
             <span className="text-gray-300 text-[16px]">Calories</span>
-            <span className="text-5xl font-bold">190</span>
+            <span className="text-5xl font-bold">{active === "today" ? (todayPlan.map((plan)=> (plan.caloriesBurned)).reduce((acc, cur)=> acc+cur,0)):(saveLater.map((plan)=> (plan.caloriesBurned)).reduce((acc, cur)=> acc+cur,0))}</span>
           </div>
         </div>
       </div>
+
+
 
       {/* tab button activity  */}
       <div className="border border-[#232732] bg-[#151921] rounded-2xl px-2 py-2 w-70 flex gap-1">
@@ -49,6 +54,9 @@ const MyPlanSection = () => {
           Saved
         </button>
       </div>
+
+
+
 
       {/* empty card display */}
       <div className="my-10">
