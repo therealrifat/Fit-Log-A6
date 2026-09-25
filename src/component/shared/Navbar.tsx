@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const links =<>
         <Link href={"/"} className={`${pathname==='/' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-[12px] md:text-[16px] px-4 py-1`}><li>Workouts</li></Link>
-        <Link href={"my-plan"} className={`${pathname==='/my-plan' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-[12px] md:text-[16px] px-4 py-1`}><li >My Plan</li></Link>
+        <Link href={"/my-plan"} className={`${pathname==='/my-plan' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-[12px] md:text-[16px] px-4 py-1`}><li >My Plan</li></Link>
     </>
 
     const myPlan =<>
@@ -23,10 +23,12 @@ const Navbar = () => {
   return (
     <nav className=" bg-[#0C0D10]/90  backdrop-blur-lg border-b border-[#202020] top-0 sticky">
       <div className="flex justify-between items-center px-7 py-4">
-            <div className="flex gap-2 items-center ">
+            <Link href={"/"} className=" cursor-pointer">
+                <div className="flex gap-2 items-center ">
                 <Image src={logo} width={30} height={30} alt="logo"></Image>
                 <h3 className="text-2xl font-semibold md:inline hidden">FITLOG</h3>
             </div>
+            </Link>
             <div className="flex list-none">
                 {links}
             </div>

@@ -1,8 +1,10 @@
+import SaveLaterBtn from "@/component/ActionBtn/saveLaterBtn";
+import TodayBtn from "@/component/ActionBtn/todayBtn";
 import { getPlansData } from "@/lib/plan";
 import { IPlanType } from "@/types/type";
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+
+
 
 const page = async ({ params }: { params: Promise<{ planId: string }> }) => {
   const allPlanData = await getPlansData();
@@ -77,12 +79,8 @@ const page = async ({ params }: { params: Promise<{ planId: string }> }) => {
             ))}
           </div>
           <div className="flex gap-3 items-center">
-            <Link href={"/"} className=" bg-[#ccff00] text-black py-2 px-4 rounded-3xl ">
-              <button className="cursor-pointer" >Add to today's plan</button>
-            </Link>
-            <Link href={"/"} className=" border border-gray-500 py-2 px-4 rounded-3xl" >
-              <button className="cursor-pointer">Save for later</button>
-            </Link>
+            <TodayBtn />
+            <SaveLaterBtn/>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ const PlanCard = ({ plan }: PlanCardProps) => {
   } = plan;
   return (
     <div className="max-w-11/12 mx-auto">
-      <Link href={`/exercise/${id}`}>
+      <Link href={`/details-page/${id}`}>
         <div className="bg-[#222630] w-85 md:w-105 h-auto rounded-2xl overflow-hidden space-y-2 ">
           <Image
             src={image}
