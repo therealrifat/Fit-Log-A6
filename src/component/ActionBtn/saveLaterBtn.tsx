@@ -1,6 +1,6 @@
 "use client"
 import { PlanContext } from '@/context/planContext';
-import { IPlanType } from '@/types/type';
+
 import React, { useContext } from 'react';
 import { MdOutlineBookmarkAdded } from 'react-icons/md';
 import { toast } from 'react-toastify';
