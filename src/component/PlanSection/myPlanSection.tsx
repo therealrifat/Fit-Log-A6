@@ -10,7 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import { SlEnergy } from "react-icons/sl";
 
 const MyPlanSection = () => {
-  const { todayPlan, setTodayPlan, saveLater } = useContext(PlanContext);
+  const { todayPlan, setTodayPlan, saveLater, setSavelater } = useContext(PlanContext);
 
   //   const minutes = saveLater.map((plan)=> (plan.duration)).reduce((acc, cur)=> acc+cur,0)
   //   const calories = saveLater.map((plan)=> (plan.caloriesBurned)).reduce((acc, cur)=> acc+cur,0)
@@ -23,8 +23,12 @@ const MyPlanSection = () => {
 
   const handlesTodayPlan =(planCard: IPlanType)=>{
       const removePlan = todayPlan.filter(tp => tp.id !== planCard.id)
-      console.log(removePlan, "after")
       setTodayPlan(removePlan)
+  }
+
+  const handlesSavedPlan =(sevedPlan: IPlanType)=>{
+    const removePlan = saveLater.filter(tp => tp.id !== sevedPlan.id)
+    setSavelater(removePlan)
   }
 
   return (
@@ -131,7 +135,49 @@ const MyPlanSection = () => {
                 ))}
               </div>
             ) : (
-              "save"
+              <div className="  space-y-5  ">
+                {saveLater.map((plan, ind) => (
+                  <div
+                    key={ind}
+                    className=" grid grid-cols-3 justify-between border bg-[#14171E] border-gray-700 p-4 overflow-hidden rounded-2xl"
+                  >
+                    <Image
+                      src={plan.image}
+                      width={120}
+                      height={120}
+                      alt={plan.name}
+                      className="w-40 h-25 object-cover rounded-lg "
+                    ></Image>
+
+                    {/* card name and details  */}
+                    <div className="-ml-57 flex flex-col px-4 justify- space-y-2">
+                      <h2 className="text-2xl font-extrabold">{plan.name}</h2>
+                      <p className="text-gray-400">{plan.equipment}</p>
+                      <div className="flex gap-2">
+                        <span className="flex gap-1 items-center">
+                          <IoIosTimer className="text-[#ccff22] font-bold" />
+                          {plan.duration} Min{" "}
+                        </span>
+                        <span className="flex gap-1 items-center">
+                          <SlEnergy className="text-[#ccff22] font-bold" />
+                          {plan.caloriesBurned} kcal
+                        </span>
+                        <span className="flex gap-1 items-center">
+                          <FaRegStar className="text-[#ccff22] font-bold" />
+                          {plan.rating}
+                        </span>
+                      </div>
+                    </div>
+                        {/* view details and cancel btn cta */}
+                    <div className=" flex gap-2 items-center">
+                        <button className=" border border-gray-500 w-33 h-8 rounded-2xl">View Details</button>
+                        <button className="flex items-center bg-[#ccff22] text-black w-40 px-2 h-8 rounded-2xl"><IoIosCheckmark  className="text-2xl"/>Mark as Done</button>
+                        <RxCross2 onClick={()=>handlesSavedPlan(plan)} className="text-xl mx-3 cursor-pointer" />
+                    </div>
+
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         </div>
