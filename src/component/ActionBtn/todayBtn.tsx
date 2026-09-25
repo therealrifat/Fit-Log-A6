@@ -19,8 +19,7 @@ const TodayBtn = ({findPlan}:{findPlan: IPlanType}) => {
     
     const handlesTodaysBtn =()=>{
         
-        if(!todayPlan.includes(findPlan)){
-            console.log("founded ")
+        if(todayPlan.find((plan)=> plan.id === findPlan.id)){
             setTodayPlan([...todayPlan, findPlan])
             toast.success("Added to today's plan")
         }else{
