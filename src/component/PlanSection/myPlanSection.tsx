@@ -1,5 +1,6 @@
 "use client";
 import { PlanContext } from "@/context/planContext";
+import { IPlanType } from "@/types/type";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
@@ -9,7 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import { SlEnergy } from "react-icons/sl";
 
 const MyPlanSection = () => {
-  const { todayPlan, saveLater } = useContext(PlanContext);
+  const { todayPlan, setTodayPlan, saveLater } = useContext(PlanContext);
 
   //   const minutes = saveLater.map((plan)=> (plan.duration)).reduce((acc, cur)=> acc+cur,0)
   //   const calories = saveLater.map((plan)=> (plan.caloriesBurned)).reduce((acc, cur)=> acc+cur,0)
@@ -17,8 +18,14 @@ const MyPlanSection = () => {
 
   const [active, setActive] = useState("today");
   const handlesButtons = (clicked: "today" | "saved") => {
-    setActive(clicked);
+    setActive(clicked); 
   };
+
+  const handlesTodayPlan =(planCard: IPlanType)=>{
+      const removePlan = todayPlan.filter(tp => tp.id !== planCard.id)
+      console.log(removePlan, "after")
+      setTodayPlan(removePlan)
+  }
 
   return (
     <div>
@@ -117,7 +124,7 @@ const MyPlanSection = () => {
                     <div className=" flex gap-2 items-center">
                         <button className=" border border-gray-500 w-33 h-8 rounded-2xl">View Details</button>
                         <button className="flex items-center bg-[#ccff22] text-black w-40 px-2 h-8 rounded-2xl"><IoIosCheckmark  className="text-2xl"/>Mark as Done</button>
-                        <RxCross2 className="text-xl mx-3" />
+                        <RxCross2 onClick={()=>handlesTodayPlan(plan)} className="text-xl mx-3 cursor-pointer" />
                     </div>
 
                   </div>

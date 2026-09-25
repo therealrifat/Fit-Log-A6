@@ -7,6 +7,7 @@ import Image from "next/image";
 
 
 const page = async ({ params }: { params: Promise<{ planId: string }> }) => {
+  
   const allPlanData = await getPlansData();
   const { planId } = await params;
   const findPlan: IPlanType = allPlanData.find(

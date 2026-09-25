@@ -10,10 +10,17 @@ import { toast } from 'react-toastify';
 
 const SaveLaterBtn = ({findPlan}:{findPlan: IPlanType}) => {
     const {saveLater, setSavelater}= useContext(PlanContext)
-     const handlesSaveLaterBtn =()=>{   
-          setSavelater([...saveLater, findPlan])
-            toast.success("Added Save for later")
+
+    
+    const handlesSaveLaterBtn =()=>{   
+        if(!saveLater.includes(findPlan)){
+            setSavelater([...saveLater, findPlan])
+            toast.success("Save for later")
+        }else{
+            toast.warning("This plan Already added")
         }
+
+    }
 
     return  <button onClick={()=>handlesSaveLaterBtn()} className="cursor-pointer flex items-center gap-2 border border-gray-500 py-2 px-4 rounded-3xl "><MdOutlineBookmarkAdded/>Save for later</button>
 
