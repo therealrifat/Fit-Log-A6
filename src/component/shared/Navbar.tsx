@@ -1,9 +1,12 @@
 "use client"
 import logo from "@/app/assets/logo.png";
+import { PlanContext } from "@/context/planContext";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useContext } from "react";
 const Navbar = () => {
+    const {todayPlan, saveLater}=useContext(PlanContext)
    const pathname = usePathname()
 
     const links =<>
@@ -13,10 +16,10 @@ const Navbar = () => {
 
     const myPlan =<>
     <Link href={"/my-plan"}>
-        <li className=" md:text-[16px] text-[12px]">Plan <span className=" bg-[#ccff00] text-black px-2  py-1 font-semibold text-[12px] md:text-[16px] rounded-full"> 0</span></li>
+        <li className=" md:text-[16px] text-[12px]">Plan <span className=" bg-[#ccff00] text-black px-2  py-1 font-semibold text-[12px] md:text-[16px] rounded-full">{todayPlan.length}</span></li>
     </Link>
     <Link href={"/my-plan"}>
-        <li className="md:text-[16px] text-[12px]">Saved <span className=" font-inter border border-gray-200 text-white px-2  py-1 font-semibold text-[12px] md:text-[16px]  rounded-full">0</span>
+        <li className="md:text-[16px] text-[12px]">Saved <span className=" font-inter border border-gray-200 text-white px-2  py-1 font-semibold text-[12px] md:text-[16px]  rounded-full">{saveLater.length}</span>
         </li>
     </Link>  
     </>
