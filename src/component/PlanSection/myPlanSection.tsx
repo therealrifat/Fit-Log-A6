@@ -38,13 +38,13 @@ const MyPlanSection = () => {
         <div className="grid grid-cols-3 bg-[#13161D] md:w-300  py-8 rounded-xl border border-gray-700 overflow-hidden justify-between">
           <div className="flex flex-col px-5 space-y-1 border-r border-r-gray-500 ">
             <span className="text-gray-300 text-[16px]">Exercises</span>
-            <span className="text-[#ccff00] text-5xl font-bold">
+            <span className="text-[#ccff00] text-5xl font-bold font-oswald">
               {active === "today" ? todayPlan.length : saveLater.length}
             </span>
           </div>
           <div className="flex flex-col px-5 space-y-1 border-r border-r-gray-500">
             <span className="text-gray-300 text-[16px]">Minutes</span>
-            <span className="text-5xl font-bold">
+            <span className="text-5xl font-bold font-oswald">
               {active === "today"
                 ? todayPlan
                     .map((plan) => plan.duration)
@@ -56,7 +56,7 @@ const MyPlanSection = () => {
           </div>
           <div className="flex flex-col px-5 space-y-1">
             <span className="text-gray-300 text-[16px]">Calories</span>
-            <span className="text-5xl font-bold">
+            <span className="text-5xl font-bold font-oswald">
               {active === "today"
                 ? todayPlan
                     .map((plan) => plan.caloriesBurned)
@@ -125,7 +125,7 @@ const MyPlanSection = () => {
                       </div>
                     </div>
                         {/* view details and cancel btn cta */}
-                    <div className=" flex gap-2 items-center">
+                    <div className=" flex gap-2 items-center justify-end">
                         <button className=" border border-gray-500 w-33 h-8 rounded-2xl">View Details</button>
                         <button className="flex items-center bg-[#ccff22] text-black w-40 px-2 h-8 rounded-2xl"><IoIosCheckmark  className="text-2xl"/>Mark as Done</button>
                         <RxCross2 onClick={()=>handlesTodayPlan(plan)} className="text-xl mx-3 cursor-pointer" />
@@ -169,10 +169,10 @@ const MyPlanSection = () => {
                       </div>
                     </div>
                         {/* view details and cancel btn cta */}
-                    <div className=" flex gap-2 items-center">
+                    <div className=" flex gap-2 items-center justify-end">
                         <button className=" border border-gray-500 w-33 h-8 rounded-2xl">View Details</button>
-                        <button className="flex items-center bg-[#ccff22] text-black w-40 px-2 h-8 rounded-2xl"><IoIosCheckmark  className="text-2xl"/>Mark as Done</button>
-                        <RxCross2 onClick={()=>handlesSavedPlan(plan)} className="text-xl mx-3 cursor-pointer" />
+                        {/* <button className="flex items-center bg-[#ccff22] text-black w-40 px-2 h-8 rounded-2xl"><IoIosCheckmark  className="text-2xl"/>Mark as Done</button> */}
+                        <RxCross2 onClick={()=>handlesSavedPlan(plan)} className="text-xl mx-3  cursor-pointer" />
                     </div>
 
                   </div>
@@ -184,7 +184,7 @@ const MyPlanSection = () => {
       ) : (
         <div className="my-10">
           <div className=" flex flex-col items-center py-25 border border-gray-800 space-y-5 rounded-2xl">
-            <h4 className="text-4xl font-extrabold">NOTHING HERE YET</h4>
+            <h4 className="text-4xl font-extrabold font-oswald">NOTHING HERE YET</h4>
             <p className="text-gray-600">
               Browse the library and add a lift to get today moving.
             </p>

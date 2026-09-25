@@ -28,7 +28,7 @@ const page = async ({ params }: { params: Promise<{ planId: string }> }) => {
           ></Image>
         </div>
         <div className=" space-y-2.5 ">
-          <h1 className="text-4xl font-extrabold">{name}</h1>
+          <h1 className="text-4xl font-extrabold font-oswald">{name}</h1>
           <p className=" ">{description}</p>
           <div className="">
             {muscleGroups.map((mm, ind) => (

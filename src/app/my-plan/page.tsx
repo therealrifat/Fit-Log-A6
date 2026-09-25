@@ -8,7 +8,7 @@ const MyPlanPage = () => {
       {/* my plan page title */}
 
       <div className="text-left my-10 space-y-2">
-        <h1 className="text-4xl font-bold">My Plan </h1>
+        <h1 className="text-4xl font-bold font-oswald">My Plan </h1>
         <p className=" text-gray-500">
           Cap of five lifts for today. Finish them, then load more.
         </p>

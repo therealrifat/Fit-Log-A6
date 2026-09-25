@@ -10,8 +10,8 @@ const Navbar = () => {
    const pathname = usePathname()
 
     const links =<>
-        <Link href={"/"} className={`${pathname==='/' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-[12px] md:text-[16px] px-4 py-1`}><li>Workouts</li></Link>
-        <Link href={"/my-plan"} className={`${pathname==='/my-plan' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-[12px] md:text-[16px] px-4 py-1`}><li >My Plan</li></Link>
+        <Link href={"/"} className={`${pathname==='/' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-[12px] md:text-[16px] px-4 py-1 `}><li>Workouts</li></Link>
+        <Link href={"/my-plan"} className={`${pathname==='/my-plan' ? " text-yellow-300 rounded-2xl bg-[#202020]" : ""} text-[12px] md:text-[16px] px-4 py-1 `}><li >My Plan</li></Link>
     </>
 
     const myPlan =<>
@@ -29,7 +29,7 @@ const Navbar = () => {
             <Link href={"/"} className=" cursor-pointer">
                 <div className="flex gap-2 items-center ">
                 <Image src={logo} width={30} height={30} alt="logo"></Image>
-                <h3 className="text-2xl font-semibold md:inline hidden">FITLOG</h3>
+                <h3 className="text-2xl font-semibold md:inline hidden font-oswald">FITLOG</h3>
             </div>
             </Link>
             <div className="flex list-none">

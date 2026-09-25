@@ -44,7 +44,7 @@ const PlanCard = ({ plan }: PlanCardProps) => {
                 </span>
               ))}
             </div>
-            <h1 className=" md:text-xl text-lg font-bold">{name}</h1>
+            <h1 className=" md:text-xl text-lg font-bold font-oswald">{name}</h1>
             <p className=" text-gray-300 text-md">{equipment}</p>
             <hr className=" text-[#505050] "></hr>
             <div className="flex gap-2">
