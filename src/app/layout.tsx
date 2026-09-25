@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/shared/Navbar";
 import Footer from "@/component/shared/Footer";
+import { ToastContainer } from "react-toastify";
+import PlanProviderContext from "@/context/planContext";
 
 
 const inter = Inter({
@@ -26,9 +28,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className="h-full antialiased"
     >
       <body className={`min-h-full flex flex-col ${inter.className}  `}>
+        <PlanProviderContext>
         <Navbar/>
         {children}
         <Footer />
+        <ToastContainer />
+        </PlanProviderContext>
       </body>
     </html>
   );

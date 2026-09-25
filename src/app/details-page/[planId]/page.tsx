@@ -79,8 +79,8 @@ const page = async ({ params }: { params: Promise<{ planId: string }> }) => {
             ))}
           </div>
           <div className="flex gap-3 items-center">
-            <TodayBtn />
-            <SaveLaterBtn/>
+            <TodayBtn findPlan={findPlan} />
+            <SaveLaterBtn findPlan={findPlan}/>
           </div>
         </div>
       </div>

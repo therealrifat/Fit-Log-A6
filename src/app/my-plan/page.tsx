@@ -1,6 +1,10 @@
-import React from 'react';
+"use client"
+import { PlanContext } from '@/context/planContext';
+import React, { useContext } from 'react';
 
 const MyPlanPage = () => {
+    const {todayPlan, saveLater} =useContext(PlanContext)
+    console.log("todayPlan", todayPlan, "save later" , saveLater)
     return (
         <section className='max-w-11/12 mx-auto'>
             <div className='text-left'>
@@ -10,5 +14,6 @@ const MyPlanPage = () => {
         </section>
     );
 };
+
 
 export default MyPlanPage;
