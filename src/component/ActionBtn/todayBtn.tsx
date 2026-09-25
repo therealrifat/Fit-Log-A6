@@ -2,6 +2,7 @@
 
 import { PlanContext } from "@/context/planContext";
 import { IPlanType } from "@/types/type";
+
 import { useContext } from "react";
 import { LuCalendarPlus } from "react-icons/lu";
 import { toast } from "react-toastify";
@@ -14,6 +15,7 @@ import { toast } from "react-toastify";
 const TodayBtn = ({findPlan}:{findPlan: IPlanType}) => {
 
     const {todayPlan, setTodayPlan}=useContext(PlanContext)
+
     console.log("okaay")
     const handlesTodaysBtn =()=>{
         setTodayPlan([...todayPlan, findPlan])

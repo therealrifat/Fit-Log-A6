@@ -1,11 +1,24 @@
 "use client"
+import { IPlanType } from "@/types/type";
 import React, { createContext, ReactNode, useState } from "react";
 
-export const PlanContext = createContext({});
+interface PlanContext {
+  todayPlan: IPlanType[];
+  setTodayPlan: React.Dispatch<React.SetStateAction<IPlanType[]>>
+  saveLater: IPlanType[];
+  setSavelater: React.Dispatch<React.SetStateAction<IPlanType[]>>
+}
+
+export const PlanContext = createContext<PlanContext>({
+    todayPlan: [],
+    setTodayPlan: () => {},
+    saveLater:[],
+    setSavelater: ()=>{}
+});
 
 const PlanProviderContext = ({ children }: { children: ReactNode }) => {
-  const [todayPlan, setTodayPlan] = useState([]);
-  const [saveLater, setSavelater] = useState([]);
+  const [todayPlan, setTodayPlan] = useState<IPlanType[]>([]);
+  const [saveLater, setSavelater] = useState<IPlanType[]>([]);
 
   const shared = {
     todayPlan,
