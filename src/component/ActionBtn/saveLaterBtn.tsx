@@ -13,7 +13,7 @@ const SaveLaterBtn = ({findPlan}:{findPlan: IPlanType}) => {
 
     
     const handlesSaveLaterBtn =()=>{   
-        if(!saveLater.includes(findPlan)){
+        if(!(saveLater.find((plan)=> plan.id === findPlan.id))){
             setSavelater([...saveLater, findPlan])
             toast.success("Save for later")
         }else{
