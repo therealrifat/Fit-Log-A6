@@ -11,13 +11,16 @@ import { SlEnergy } from "react-icons/sl";
 import { toast } from "react-toastify";
 import EmptyCard from "./emptyCard";
 
+
+
+
+
+
 const MyPlanSection = () => {
+
+
   const { todayPlan, setTodayPlan, saveLater, setSavelater } =
     useContext(PlanContext);
-
-  //   const minutes = saveLater.map((plan)=> (plan.duration)).reduce((acc, cur)=> acc+cur,0)
-  //   const calories = saveLater.map((plan)=> (plan.caloriesBurned)).reduce((acc, cur)=> acc+cur,0)
-  //  console.log(calories)
 
   const [active, setActive] = useState("today");
   const handlesButtons = (clicked: "today" | "saved") => {
@@ -62,13 +65,16 @@ const MyPlanSection = () => {
   const sortedTodayWorkout = sortWorkout(todayPlan)
   const sortedSaveWorkout = sortWorkout(saveLater)
 
+  // style part 
 
+  const planName ='lg:text-2xl md:text-xl text-[14px] font-extrabold'
+  const planEqu ="text-gray-400 md:text-[16px] text-[12px]"
 
   return (
     <div>
       {/* bar display */}
       <div className="my-10">
-        <div className="grid grid-cols-3 bg-[#13161D] md:w-300  py-8 rounded-xl border border-gray-700 overflow-hidden justify-between">
+        <div className="grid grid-cols-3 bg-[#13161D] lg:w-300  py-8 rounded-xl border border-gray-700 overflow-hidden justify-between">
           <div className="flex flex-col px-5 space-y-1 border-r border-r-gray-500 ">
             <span className="text-gray-300 text-[16px]">Exercises</span>
             <span className="text-[#ccff00] text-5xl font-bold font-oswald">
@@ -152,24 +158,24 @@ const MyPlanSection = () => {
                 {sortedTodayWorkout.map((plan, ind) => (
                   <div
                     key={ind}
-                    className=" grid grid-cols-3 justify-between border bg-[#14171E] border-gray-700 p-4 overflow-hidden rounded-2xl"
+                    className=" grid grid-cols-3 md:justify-between  justify-center border bg-[#14171E] border-gray-700 p-4 overflow-hidden rounded-2xl"
                   >
                     <Image
                       src={plan.image}
                       width={120}
                       height={120}
                       alt={plan.name}
-                      className="w-40 h-25 object-cover rounded-lg "
+                      className="lg:w-40 w-25 md:w-35 h-25 object-cover rounded-lg "
                     ></Image>
 
                     {/* card name and details  */}
-                    <div className="-ml-57 flex flex-col px-4 justify- space-y-2">
-                      <h2 className="text-2xl font-extrabold">{plan.name}</h2>
-                      <p className="text-gray-400">{plan.equipment}</p>
-                      <div className="flex gap-2">
+                    <div className="lg:-ml-57 -ml-5 flex flex-col px-4 justify- space-y-2">
+                      <h2 className={planName}>{plan.name}</h2>
+                      <p className={planEqu}>{plan.equipment}</p>
+                      <div className="flex gap-2 md:text-lg text-[10px]">
                         <span className="flex gap-1 items-center">
                           <IoIosTimer className="text-[#ccff22] font-bold" />
-                          {plan.duration} Min{" "}
+                          {plan.duration} Min
                         </span>
                         <span className="flex gap-1 items-center">
                           <SlEnergy className="text-[#ccff22] font-bold" />
@@ -179,20 +185,20 @@ const MyPlanSection = () => {
                           <FaRegStar className="text-[#ccff22] font-bold" />
                           {plan.rating}
                         </span>
-                      </div>
+                    </div>
                     </div>
                     {/* view details and cancel btn cta */}
                     <div className=" flex gap-2 items-center justify-end">
                       <Link href={`/details-page/${plan.id}`}>
-                        <button className=" border border-gray-500 w-33 h-8 rounded-2xl cursor-pointer">
+                        <button className=" border border-gray-500 md:text-lg text-[10px] md:w-33 md:h-8 md:rounded-2xl rounded-md cursor-pointer">
                           View Details
                         </button>
                       </Link>
                       <button
                         onClick={() => markDone(plan)}
-                        className="flex items-center bg-[#ccff22] text-black w-40 px-2 h-8 rounded-2xl"
+                        className="flex md:items-center md:text-lg text-[10px] bg-[#ccff22] text-black md:w-40 md:px-2 md:h-8 md:rounded-2xl rounded-md"
                       >
-                        <IoIosCheckmark className="text-2xl" />
+                        <IoIosCheckmark className="md:text-2xl" />
                         Mark as Done
                       </button>
                       <RxCross2
@@ -206,7 +212,11 @@ const MyPlanSection = () => {
             ) : (
               <EmptyCard />
             )
-          ) : // saved tabs
+          ) : 
+          
+        
+          
+          // saved tabs
 
           saveLater.length > 0 ? (
             <div className="  space-y-5  ">
@@ -220,28 +230,28 @@ const MyPlanSection = () => {
                     width={120}
                     height={120}
                     alt={plan.name}
-                    className="w-40 h-25 object-cover rounded-lg "
+                    className="lg:w-40 w-25 md:w-35 h-25 object-cover rounded-lg"
                   ></Image>
 
                   {/* card name and details  */}
-                  <div className="-ml-57 flex flex-col px-4 justify- space-y-2">
-                    <h2 className="text-2xl font-extrabold">{plan.name}</h2>
-                    <p className="text-gray-400">{plan.equipment}</p>
-                    <div className="flex gap-2">
-                      <span className="flex gap-1 items-center">
-                        <IoIosTimer className="text-[#ccff22] font-bold" />
-                        {plan.duration} Min{" "}
-                      </span>
-                      <span className="flex gap-1 items-center">
-                        <SlEnergy className="text-[#ccff22] font-bold" />
-                        {plan.caloriesBurned} kcal
-                      </span>
-                      <span className="flex gap-1 items-center">
-                        <FaRegStar className="text-[#ccff22] font-bold" />
-                        {plan.rating}
-                      </span>
+                  <div className="lg:-ml-57 -ml-5 flex flex-col px-4 justify- space-y-2">
+                      <h2 className={planName}>{plan.name}</h2>
+                      <p className={planEqu}>{plan.equipment}</p>
+                      <div className="flex gap-2 md:text-lg text-[10px]">
+                        <span className="flex gap-1 items-center">
+                          <IoIosTimer className="text-[#ccff22] font-bold" />
+                          {plan.duration} Min
+                        </span>
+                        <span className="flex gap-1 items-center">
+                          <SlEnergy className="text-[#ccff22] font-bold" />
+                          {plan.caloriesBurned} kcal
+                        </span>
+                        <span className="flex gap-1 items-center">
+                          <FaRegStar className="text-[#ccff22] font-bold" />
+                          {plan.rating}
+                        </span>
                     </div>
-                  </div>
+                    </div>
                   {/* view details and cancel btn cta */}
                   <div className=" flex gap-2 items-center justify-end">
                     <Link href={`/details-page/${plan.id}`}>

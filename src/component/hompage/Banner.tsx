@@ -6,7 +6,7 @@ const Banner = () => {
     <div className="flex md:flex-row flex-col  items-center max-w-11/12 mx-auto bg-[#15171D] gap-20 p-15  mt-10 rounded-2xl">
       <div className="md:inline flex flex-col space-y-5 items-center md:items-start">
         <h4 className="text-[#C2F800] text-sm text-center md:text-left">WORKOUT LIBRARY</h4>
-        <h2 className=" md:text-7xl text-2xl md:font-extrabold font-bold text-center md:text-left font-oswald">TRAIN WITH INTENT. LOG EVERY SET.</h2>
+        <h2 className=" lg:text-7xl md:text-5xl text-2xl md:font-extrabold font-bold text-center md:text-left font-oswald">TRAIN WITH INTENT. LOG EVERY SET.</h2>
         <h3 className="md:w-[60%] text-center md:text-left text-sm md:text-lg text-gray-400 ">
           {`FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into
           today's plan, and watch the week's work add up.`}
@@ -20,7 +20,7 @@ const Banner = () => {
           src={bannerImage}
 
           alt="Baner Image"
-          className=" w-md"
+          className=" md:w-225 w-md"
         ></Image>
       </div>
     </div>
