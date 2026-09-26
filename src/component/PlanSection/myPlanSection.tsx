@@ -67,8 +67,7 @@ const MyPlanSection = () => {
 
   // style part 
 
-  const planName ='lg:text-2xl md:text-xl text-[14px] font-extrabold'
-  const planEqu ="text-gray-400 md:text-[16px] text-[12px]"
+
 
   return (
     <div>
@@ -114,16 +113,16 @@ const MyPlanSection = () => {
 
       
       <div className="flex justify-between items-center ">
-        <div className="border border-[#232732] bg-[#151921] rounded-2xl px-2 py-2 w-70 flex gap-1">
+        <div className="border border-[#232732] bg-[#151921] rounded-2xl px-2 py-2 sm:w-50 md:w-70 flex gap-1">
           <button
             onClick={() => handlesButtons("today")}
-            className={`${active === "today" ? "border bg-[#1F242D] border-[#2B303D]" : " "} rounded-2xl px-4 py-1 cursor-pointer`}
+            className={`${active === "today" ? "border bg-[#1F242D] border-[#2B303D]" : " "} sm:rounded-2xl rounded-md sm:px-4 sm:py-1 cursor-pointer`}
           >
             Today’s Plan
           </button>
           <button
             onClick={() => handlesButtons("saved")}
-            className={`${active === "saved" ? "border bg-[#1F242D] border-[#2B303D]" : " "} rounded-2xl px-10 py-1 cursor-pointer`}
+            className={`${active === "saved" ? "border bg-[#1F242D] border-[#2B303D]" : " "} sm:rounded-2xl rounded-md sm:px-10 sm:py-1 cursor-pointer`}
           >
             Saved
           </button>
@@ -158,7 +157,7 @@ const MyPlanSection = () => {
                 {sortedTodayWorkout.map((plan, ind) => (
                   <div
                     key={ind}
-                    className=" grid grid-cols-3 md:justify-between  justify-center border bg-[#14171E] border-gray-700 p-4 overflow-hidden rounded-2xl"
+                    className=" flex gap-2 md:justify-between justify-center border bg-[#14171E] border-gray-700 p-2 md:p-4 overflow-hidden rounded-2xl"
                   >
                     <Image
                       src={plan.image}
@@ -169,36 +168,36 @@ const MyPlanSection = () => {
                     ></Image>
 
                     {/* card name and details  */}
-                    <div className="lg:-ml-57 -ml-5 flex flex-col px-4 justify- space-y-2">
-                      <h2 className={planName}>{plan.name}</h2>
-                      <p className={planEqu}>{plan.equipment}</p>
-                      <div className="flex gap-2 md:text-lg text-[10px]">
-                        <span className="flex gap-1 items-center">
-                          <IoIosTimer className="text-[#ccff22] font-bold" />
-                          {plan.duration} Min
-                        </span>
-                        <span className="flex gap-1 items-center">
-                          <SlEnergy className="text-[#ccff22] font-bold" />
-                          {plan.caloriesBurned} kcal
-                        </span>
-                        <span className="flex gap-1 items-center">
-                          <FaRegStar className="text-[#ccff22] font-bold" />
-                          {plan.rating}
-                        </span>
-                    </div>
+                    <div className="lg:-ml-100 -ml-5 flex flex-col px-4 space-y-2">
+                      <h2 className='lg:text-2xl md:text-xl sm:text-[20px] text-[14px] font-extrabold'>{plan.name}</h2>
+                      <p className='text-gray-400 md:text-[16px] text-[12px]'>{plan.equipment}</p>
+                      <div className="flex gap-2 md:text-[14px] sm:text-[14px] text-[8px]">
+                          <span className="flex gap-1 items-center">
+                            <IoIosTimer className="text-[#ccff22] font-bold" />
+                            {plan.duration} Min
+                          </span>
+                          <span className="flex gap-1 items-center">
+                            <SlEnergy className="text-[#ccff22] font-bold" />
+                            {plan.caloriesBurned} kcal
+                          </span>
+                          <span className="flex gap-1 items-center">
+                            <FaRegStar className="text-[#ccff22] font-bold" />
+                            {plan.rating}
+                          </span>
+                      </div>
                     </div>
                     {/* view details and cancel btn cta */}
                     <div className=" flex gap-2 items-center justify-end">
                       <Link href={`/details-page/${plan.id}`}>
-                        <button className=" border border-gray-500 md:text-lg text-[10px] md:w-33 md:h-8 md:rounded-2xl rounded-md cursor-pointer">
+                        <button className=" border px-1 border-gray-500 md:text-lg sm:text-[14px] text-[10px] md:w-33 md:h-8 md:rounded-2xl rounded-md cursor-pointer">
                           View Details
                         </button>
                       </Link>
                       <button
                         onClick={() => markDone(plan)}
-                        className="flex md:items-center md:text-lg text-[10px] bg-[#ccff22] text-black md:w-40 md:px-2 md:h-8 md:rounded-2xl rounded-md"
+                        className=" flex items-center px-1 text-[10px] sm:text-[14px] md:text-[16px] bg-[#ccff22] text-black md:w-40 sm:w-30 md:px-2 md:h-8 md:rounded-2xl rounded-md "
                       >
-                        <IoIosCheckmark className="md:text-2xl" />
+                        <IoIosCheckmark className="" />
                         Mark as Done
                       </button>
                       <RxCross2
@@ -219,46 +218,51 @@ const MyPlanSection = () => {
           // saved tabs
 
           saveLater.length > 0 ? (
-            <div className="  space-y-5  ">
+            <div className=" space-y-5  ">
               {sortedSaveWorkout.map((plan, ind) => (
                 <div
                   key={ind}
-                  className=" grid grid-cols-3 justify-between border bg-[#14171E] border-gray-700 p-4 overflow-hidden rounded-2xl"
+                  className=" flex gap-2 md:justify-between justify-center border bg-[#14171E] border-gray-700 p-2 md:p-4 overflow-hidden rounded-2xl"
                 >
                   <Image
                     src={plan.image}
                     width={120}
                     height={120}
                     alt={plan.name}
-                    className="lg:w-40 w-25 md:w-35 h-25 object-cover rounded-lg"
+                    className="lg:w-40 w-25 md:w-35 h-25 object-cover rounded-lg "
                   ></Image>
 
                   {/* card name and details  */}
-                  <div className="lg:-ml-57 -ml-5 flex flex-col px-4 justify- space-y-2">
-                      <h2 className={planName}>{plan.name}</h2>
-                      <p className={planEqu}>{plan.equipment}</p>
-                      <div className="flex gap-2 md:text-lg text-[10px]">
-                        <span className="flex gap-1 items-center">
-                          <IoIosTimer className="text-[#ccff22] font-bold" />
-                          {plan.duration} Min
-                        </span>
-                        <span className="flex gap-1 items-center">
-                          <SlEnergy className="text-[#ccff22] font-bold" />
-                          {plan.caloriesBurned} kcal
-                        </span>
-                        <span className="flex gap-1 items-center">
-                          <FaRegStar className="text-[#ccff22] font-bold" />
-                          {plan.rating}
-                        </span>
-                    </div>
+                  
+                  <div className="lg:-ml-100 -ml-5 flex flex-col px-4 space-y-2">
+                      <h2 className='lg:text-2xl md:text-xl sm:text-[20px] text-[14px] font-extrabold'>{plan.name}</h2>
+                      <p className='text-gray-400 md:text-[16px] text-[12px]'>{plan.equipment}</p>
+                      <div className="flex gap-2 md:text-[14px] sm:text-[14px] text-[8px]">
+                          <span className="flex gap-1 items-center">
+                            <IoIosTimer className="text-[#ccff22] font-bold" />
+                            {plan.duration} Min
+                          </span>
+                          <span className="flex gap-1 items-center">
+                            <SlEnergy className="text-[#ccff22] font-bold" />
+                            {plan.caloriesBurned} kcal
+                          </span>
+                          <span className="flex gap-1 items-center">
+                            <FaRegStar className="text-[#ccff22] font-bold" />
+                            {plan.rating}
+                          </span>
+                      </div>
                     </div>
                   {/* view details and cancel btn cta */}
                   <div className=" flex gap-2 items-center justify-end">
+                    <div className=" flex items-center px-1 text-[10px] sm:text-[14px] md:text-[16px] text-black md:w-40 sm:w-30 md:px-2 md:h-8 md:rounded-2xl rounded-md ">
+
+                    </div>
                     <Link href={`/details-page/${plan.id}`}>
-                      <button className=" border border-gray-500 w-33 h-8 rounded-2xl cursor-pointer">
+                      <button className=" border px-1 border-gray-500 md:text-lg text-[10px] md:w-33 md:h-8 md:rounded-2xl rounded-md cursor-pointer">
                         View Details
                       </button>
                     </Link>
+                    
                     <RxCross2
                       onClick={() => handlesSavedPlan(plan)}
                       className="text-xl mx-3  cursor-pointer"

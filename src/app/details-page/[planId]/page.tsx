@@ -14,7 +14,7 @@ const page = async ({ params }: { params: Promise<{ planId: string }> }) => {
     (plan: IPlanType) => plan.id === parseInt(planId),
   );
   const { name, image, description, muscleGroups, instructions, equipment, difficulty, sets, reps, duration, caloriesBurned, rating } = findPlan;
-  console.log(name);
+
   return (
     <div className="my-10 max-w-11/12 mx-auto">
       <div className=" grid grid-cols-2 gap-10">
@@ -42,7 +42,7 @@ const page = async ({ params }: { params: Promise<{ planId: string }> }) => {
             ))}
           </div>
             <div className=" overflow-hidden rounded-2xl">
-                <div className="flex justify-between rounded-t-2xl border border-[#262a41] bg-[#1E2330] py-3 ">
+                <div className="flex justify-between rounded-t-2xl border border-[#43454e] bg-[#1E2330] py-3 ">
                     <span className="mx-2">EQUIPMENT</span>
                     <span className="mx-2">{equipment}</span>
                 </div>
