@@ -13,7 +13,7 @@ const allPlans = await getPlansData()
             <h2  className="text-[#ffffff] font-extrabold text-2xl font-oswald">THE LIBRARY</h2>
             <p className="text-gray-400 text-md">Twelve lifts covering every major muscle group.</p>
           </div>
-          <div  className=" grid md:grid-cols-3 grid-cols-1 gap-3 space-y-5">
+          <div  className=" grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-3 space-y-5">
             {
               allPlans.map((plan:IPlanType) => <PlanCard key={plan.id} plan={plan}/>)
             }

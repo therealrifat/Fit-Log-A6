@@ -42,32 +42,32 @@ const page = async ({ params }: { params: Promise<{ planId: string }> }) => {
             ))}
           </div>
             <div className=" overflow-hidden rounded-2xl">
-                <div className="flex justify-between rounded-t-2xl border border-gray-500 bg-[#1E2330] py-3 ">
+                <div className="flex justify-between rounded-t-2xl border border-[#262a41] bg-[#1E2330] py-3 ">
                     <span className="mx-2">EQUIPMENT</span>
                     <span className="mx-2">{equipment}</span>
                 </div>
-                <div className="flex justify-between border   border-gray-500 bg-[#1E2330] py-3 ">
+                <div className="flex justify-between border   border-[#43454e] bg-[#1E2330] py-3 ">
                     <span className="mx-2">DIFFICULTY</span>
                     <span className="mx-2">{difficulty}</span>
                 </div>
-                <div className="flex justify-between border   border-gray-500 bg-[#1E2330] py-3 ">
+                <div className="flex justify-between border   border-[#43454e] bg-[#1E2330] py-3 ">
                     <span className="mx-2">SETS</span>
                     <span className="mx-2">{sets}</span>
                 </div>
-                <div className="flex justify-between border   border-gray-500 bg-[#1E2330] py-3 ">
+                <div className="flex justify-between border   border-[#43454e] bg-[#1E2330] py-3 ">
                     <span className="mx-2">REPS</span>
                     <span className="mx-2">{reps}</span>
                 </div>
-                <div className="flex justify-between border   border-gray-500 bg-[#1E2330] py-3 ">
+                <div className="flex justify-between border   border-[#43454e] bg-[#1E2330] py-3 ">
                     <span className="mx-2">DURATION</span>
                     <span className="mx-2">{duration}</span>
                 </div>
-                <div className="flex justify-between border   border-gray-500 bg-[#1E2330] py-3 ">
+                <div className="flex justify-between border   border-[#43454e] bg-[#1E2330] py-3 ">
                     <span className="mx-2">CALORIES</span>
                     <span className="mx-2">{caloriesBurned}</span>
                 </div>
 
-                <div className="flex justify-between border rounded-b-2xl  border-gray-500 bg-[#1E2330] py-3 ">
+                <div className="flex justify-between border rounded-b-2xl  border-[#43454e] bg-[#1E2330] py-3 ">
                     <span className="mx-2">RATING</span>
                     <span className="mx-2">{rating}</span>
                 </div>

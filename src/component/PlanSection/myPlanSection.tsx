@@ -131,7 +131,7 @@ const MyPlanSection = () => {
             value={sortBy}
             onChange={(e)=> setSortBy(e.target.value as "duration" | "calories" | "calories")}
 
-            className=" w-25 select select-success"
+            className=" w-25 select select-success  z-10"
           >
 
             <option value={"duration"}>Duration</option>
