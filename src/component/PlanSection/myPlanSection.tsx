@@ -126,7 +126,7 @@ const MyPlanSection = () => {
                     </div>
                         {/* view details and cancel btn cta */}
                     <div className=" flex gap-2 items-center justify-end">
-                        <button className=" border border-gray-500 w-33 h-8 rounded-2xl">View Details</button>
+                        <Link href={`/details-page/${plan.id}`}><button className=" border border-gray-500 w-33 h-8 rounded-2xl cursor-pointer">View Details</button></Link>
                         <button className="flex items-center bg-[#ccff22] text-black w-40 px-2 h-8 rounded-2xl"><IoIosCheckmark  className="text-2xl"/>Mark as Done</button>
                         <RxCross2 onClick={()=>handlesTodayPlan(plan)} className="text-xl mx-3 cursor-pointer" />
                     </div>
@@ -135,6 +135,7 @@ const MyPlanSection = () => {
                 ))}
               </div>
             ) : (
+              // saved tabs
               <div className="  space-y-5  ">
                 {saveLater.map((plan, ind) => (
                   <div
@@ -170,8 +171,7 @@ const MyPlanSection = () => {
                     </div>
                         {/* view details and cancel btn cta */}
                     <div className=" flex gap-2 items-center justify-end">
-                        <button className=" border border-gray-500 w-33 h-8 rounded-2xl">View Details</button>
-                        {/* <button className="flex items-center bg-[#ccff22] text-black w-40 px-2 h-8 rounded-2xl"><IoIosCheckmark  className="text-2xl"/>Mark as Done</button> */}
+                        <Link href={`/details-page/${plan.id}`}><button className=" border border-gray-500 w-33 h-8 rounded-2xl cursor-pointer">View Details</button></Link>
                         <RxCross2 onClick={()=>handlesSavedPlan(plan)} className="text-xl mx-3  cursor-pointer" />
                     </div>
 
