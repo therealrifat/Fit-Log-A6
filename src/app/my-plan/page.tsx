@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import MyPlanSection from "@/component/PlanSection/myPlanSection";
 import { Suspense } from "react";
 
@@ -45,8 +46,6 @@ const MyPlanPage = () => {
       <h1 className="text-4xl text-center text-[#ccff22]">Loading Workouts…</h1>
       
       </div> >
-      
-    
 
       <div>
         <MyPlanSection />

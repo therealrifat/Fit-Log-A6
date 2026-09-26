@@ -1,5 +1,5 @@
 export const getPlansData = async () => {
-  const response = await fetch("https://api.abcz.workers.dev/api/fitlog")
+  const response = await fetch("https://api.abcz.workers.dev/api/fitlog",{cache:"no-store"})
   const data = await response.json()
   return data
 }

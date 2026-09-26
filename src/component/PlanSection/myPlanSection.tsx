@@ -125,15 +125,15 @@ const MyPlanSection = () => {
 
           {/* sort by section */}
         
-        <div className="flex gap-2">
-          <p>Sort By</p>
+        <div className="flex w-45 items-center ">
+          <p className="px-2 text-left">Sort By</p>
           <select
             value={sortBy}
             onChange={(e)=> setSortBy(e.target.value as "duration" | "calories" | "calories")}
-            // defaultValue="Sort by"
-            className="select select-success"
+
+            className=" w-25 select select-success"
           >
-            {/* <option disabled={true}>Sort By</option> */}
+
             <option value={"duration"}>Duration</option>
             <option value={"calories"}>Calories</option>
             <option value={"rating"}>Rating</option>
