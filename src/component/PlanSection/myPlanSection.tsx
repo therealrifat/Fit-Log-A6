@@ -8,6 +8,8 @@ import { FaRegStar } from "react-icons/fa";
 import { IoIosCheckmark, IoIosTimer } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { SlEnergy } from "react-icons/sl";
+import { toast } from "react-toastify";
+import EmptyCard from "./emptyCard";
 
 const MyPlanSection = () => {
   const { todayPlan, setTodayPlan, saveLater, setSavelater } = useContext(PlanContext);
@@ -24,11 +26,13 @@ const MyPlanSection = () => {
   const handlesTodayPlan =(planCard: IPlanType)=>{
       const removePlan = todayPlan.filter(tp => tp.id !== planCard.id)
       setTodayPlan(removePlan)
+      toast.success(`Remove ${planCard.name}`)
   }
 
   const handlesSavedPlan =(sevedPlan: IPlanType)=>{
     const removePlan = saveLater.filter(tp => tp.id !== sevedPlan.id)
     setSavelater(removePlan)
+    toast.success(`Remove ${sevedPlan.name}`)
   }
 
   return (
@@ -69,6 +73,8 @@ const MyPlanSection = () => {
         </div>
       </div>
 
+
+
       {/* tab button activity  */}
       <div className="border border-[#232732] bg-[#151921] rounded-2xl px-2 py-2 w-70 flex gap-1">
         <button
@@ -85,13 +91,16 @@ const MyPlanSection = () => {
         </button>
       </div>
 
-      {/* empty card display */}
 
-      {todayPlan.length || saveLater.length > 0 ? (
+
+      {/* workout card display */}
+
         <div className="my-10">
           <div>
-            {active === "today" ? (
-              <div className="  space-y-5  ">
+            {/* today plan */}
+            {active === "today" ? ( 
+              todayPlan.length > 0 ? (
+                <div className=" space-y-5  ">
                 {todayPlan.map((plan, ind) => (
                   <div
                     key={ind}
@@ -134,9 +143,13 @@ const MyPlanSection = () => {
                   </div>
                 ))}
               </div>
+              ) : (<EmptyCard />)
             ) : (
-              // saved tabs
-              <div className="  space-y-5  ">
+
+              // saved tabs 
+
+              (saveLater.length > 0 ? (
+                <div className="  space-y-5  ">
                 {saveLater.map((plan, ind) => (
                   <div
                     key={ind}
@@ -178,24 +191,11 @@ const MyPlanSection = () => {
                   </div>
                 ))}
               </div>
+              ): (<EmptyCard />))
             )}
           </div>
         </div>
-      ) : (
-        <div className="my-10">
-          <div className=" flex flex-col items-center py-25 border border-gray-800 space-y-5 rounded-2xl">
-            <h4 className="text-4xl font-extrabold font-oswald">NOTHING HERE YET</h4>
-            <p className="text-gray-600">
-              Browse the library and add a lift to get today moving.
-            </p>
-            <Link href={"/"}>
-              <button className=" bg-[#ccff00] text-black px-5 py-1 rounded-2xl cursor-pointer">
-                Go to workouts
-              </button>
-            </Link>
-          </div>
-        </div>
-      )}
+
     </div>
   );
 };

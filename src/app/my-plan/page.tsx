@@ -42,7 +42,6 @@ const MyPlanPage = () => {
           </div>
         </div>
       </div>
-      
       <h1 className="text-4xl text-center text-[#ccff22]">Loading Workouts…</h1>
       
       </div> >
